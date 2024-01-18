@@ -4,7 +4,6 @@ go
 USE practica2
 go
 
-
 CREATE TABLE tblCliente(
 	IdCliente int not null,
 	nombre varchar(100) not null,
@@ -15,7 +14,6 @@ CREATE TABLE tblCliente(
 	constraint unique_nombre
 	unique (nombre)
 )
-
 
 CREATE TABLE tblEmpleado(
 	IdEmpleado int not null,
@@ -37,10 +35,12 @@ CREATE TABLE tblEmpleado(
 	check (salario>=400 and salario<=50000)
 )
 
-
 CREATE TABLE tblVenta(
 	IdVenta int not null,
 	fecha date not null,
+
+	IdCliente int not null,
+	IdEmpleado int not null,
 
 	constraint pk_tblVenta
 	primary key(IdVenta),
@@ -52,5 +52,33 @@ CREATE TABLE tblVenta(
 	constraint fk_tblVenta_tblEmpleado
 	foreign key (IdEmpleado)
 	references tblEmpleado (IdEmpleado)
+)
+
+CREATE TABLE Producto(
+	IdProducto int not null,
+	descripcion varchar (50) not null,
+	existencia int not null,
+	precioUnitario decimal (10,2) not null,
+
+	constraint chk_precioUnitario
+	check (precioUnitario>=1 and precioUnitario<=50000),
+
+	constraint pk_Producto
+	primary key(IdProducto),
+
+	constraint unico_descripcion
+	unique (descripcion)
 
 )
+
+CREATE TABLE detalleVenta(
+	cantidad int not null,
+	precio decimal(10,2) not null,
+	
+	IdProducto int not null,
+	IdVenta int not null,
+
+	
+)
+
+
