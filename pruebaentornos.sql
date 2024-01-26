@@ -83,3 +83,22 @@ where nombre = 'Terrible mezcal'
 update producto
 set idproducto =6
 where nombre = 'leche de burra'
+
+update producto
+set nombre ='salchicha grande',
+existencia=20
+where idProducto =1
+
+--eliminar registros
+
+select * from producto
+delete from producto
+where idProducto=4
+
+delete from producto
+where nombre ='salchicha grande'
+
+delete from producto
+where precio >= and precio<=22
+
+
