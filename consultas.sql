@@ -67,3 +67,46 @@ where Country = 'Germany' or Country = 'Spain'
 -- seleccionar todos los clientes de berlin o de noruega o que comience nu nombre con g
 select * from Customers
 where City = 'Berlin' or Country = 'Norway' or CompanyName like 'G%'
+
+--seleccionar solo los clientes que no son de españa
+select * from Customers
+where not Country = 'spain'
+
+--seleccionar todos los productos que no tengan un precio entre 
+--18 y 20 dls
+select * from Products
+--where not UnitPrice =18 and not UnitPrice =19 and not UnitPrice =20
+where not (UnitPrice>=10 and UnitPrice<=20)
+
+select * from Products
+where UnitPrice not  between 18 and 20
+
+--seleccionar todos los clientes que no son de paris o de londres 
+select *from Customers
+where not (City = 'London' or City = 'Paris')
+
+--seleccionar todos los productos que no tienen preccios mayores a 30
+select *from Products
+where not (UnitPrice >30)
+
+--seleccionar todos los productos que no tienen preccios menores a 30
+select *from Products
+where not (UnitPrice <30)
+
+-- seleccionar todos los clientes que comienzan con la letra a
+select * from Customers
+where CompanyName like 'A'
+
+--seleccionar todos los clientes que finalizan con la palabra es
+select * from Customers
+where CompanyName like '%es'
+
+--seleccionar todos los clientes que tengan la palabra mer
+select * from Customers
+where CompanyName like '%mer%'
+
+--seleccionar todos los clientes con una ciudad que comience con cualquier caracter
+--seguido de la palabra ondon
+select * from Customers
+where City like '_ondon'
+
