@@ -143,4 +143,8 @@ where UnitPrice between 10 and 20
 select * from Products
 where UnitPrice>=10 and UnitPrice<= 20 --otra manera
 
+--alias de columnas y alias de tablas
+--seleccionar el nombre del producto, su stock y su precio
+select ProductName as 'Nombre del producto', UnitsInStock as existencia, 
+UnitPrice precio from Products
 
