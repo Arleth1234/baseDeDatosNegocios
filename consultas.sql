@@ -110,3 +110,37 @@ where CompanyName like '%mer%'
 select * from Customers
 where City like '_ondon'
 
+--seleccionar todos los clientes con una ciudad que comienze con l y 
+--segido de tres cualquiera caracteres y que termine con la palabra on
+select * from Customers
+where City like 'l___on'
+
+--seleccionar todos los productos que comienzen con "a" o "c" o "t"
+select * from Products
+where ProductName like '[act]%'
+
+--seleccionar todos los productos que comienzen con "b" a la "g"
+select * from Products
+where ProductName like '[b-g]%'
+
+--clausula in()
+--seleccionar todos los clientes de alemania, españa y reino unido
+select * from Customers
+where Country in('germany','spain','uk')
+-- where country= 'germany' or country= 'spain' or country= 'uk' otra manera
+
+--seleccionar todos los clientes que no son de alemania, españa y reino unido
+select * from Customers
+where not Country in('germany','spain','uk')
+-- where Country not in('germany','spain','uk')
+-- where not (country= 'germany' or country= 'spain' or country= 'uk') otra manera
+
+-- instruccion between
+--seleccionar todos los productos con un precio entre 10 y 20 dolares
+select * from Products
+where UnitPrice between 10 and 20
+
+select * from Products
+where UnitPrice>=10 and UnitPrice<= 20 --otra manera
+
+
