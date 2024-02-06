@@ -70,6 +70,42 @@ select *, (UnitPrice*Quantity)as 'importe'from [Order Details]
 --seleccionar el total en dinero que ha vendido la empresa
 select sum(UnitPrice*Quantity)as 'total' from [Order Details]
 
+--seleccionar el total de venta del producto chang
+select sum(UnitPrice*Quantity)as total from [Order Details]
+where ProductID=2
+
+--seleccionar el promedio de los precios de los productos(avg)
+select avg(UnitPrice) as promedio from Products
+
+--seleccionar el promedio y  el total de venta de los productos 41 60 31
+select sum (UnitPrice*Quantity)as total, avg(UnitPrice*Quantity) from [Order Details]
+where ProductID in (41,60,31)
+
+--seleccionar el numero de ordenes realis¿zadas entre 1996 y 1997
+select count(*)from Orders
+where OrderDate between '1996-01-01' and '1997-12-32'
+
+select year(OrderDate)from Orders
+
+select count(*) from Orders
+where year(OrderDate)between '1996' and '1997'
+
+--instruccion group by
+select country, count (*)
+from Customers
+group by Country
+order by 1 desc
+
+--seleccionar el numero de ordenes enviadas por el shippervia
+select ShipVia, count(*) as 'numero de ordenes'
+from Orders
+group by ShipVia
+
+select s.CompanyName as 'nombre compañia', count(*) as 'total'
+from Orders as o
+inner join Shippers as s
+on o.ShipVia=s.ShipperID
+group by s.CompanyName
 
 
 
